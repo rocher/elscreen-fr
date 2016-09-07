@@ -5,6 +5,7 @@
 ;; Author: Francesc Rocher <francesc.rocher@gmail.com>
 ;; URL: http://github.com/rocher/elscreen-fr
 ;; Version: 0.0.2
+;; Package-Requires: ((elscreen "0"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -157,4 +158,4 @@ are put in the frame title."
   (setq elscreen-tab-display-kill-screen nil))
 
 (provide 'elscreen-fr)
-;;; elscreen-fr ends here
+;;; elscreen-fr.el ends here
