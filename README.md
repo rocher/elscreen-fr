@@ -36,6 +36,11 @@ This is the first screen after Emacs startup.
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/0-init.png)
 
 ### Open several *tabs*
+Once `elscreen-fr` has been started, use it as you would use
+`elscreen`. See how opening new *screens* with different buffers on
+them change the window title.
+
+The current screen is shown between square brackets:
 
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/1-one-tab.png)
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/2-two-tabs.png)
