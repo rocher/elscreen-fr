@@ -30,8 +30,17 @@ using tabs:
 The customization group lets you tweak few parameters.
 
 ## Example
+
+### Init
 This is the first screen after Emacs startup.
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/0-init.png)
+
+### Open several *tabs*
+
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/1-one-tab.png)
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/2-two-tabs.png)
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/3-three-tabs.png)
+
 
 ## Finally
 Tested only under Linux / Gnome.  Feedback welcome!
