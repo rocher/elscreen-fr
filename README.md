@@ -1,6 +1,8 @@
 # elscreen-fr
-This code is an extension of the `elscreen` mode that uses your window
-title (Emacs frame name) to show the tabs/screens of `elscreen`.
+This code is an extension of
+the [`elscreen`](https://github.com/knu/elscreen) mode that uses your
+window title (Emacs frame name) to show the tabs/screens of
+`elscreen`.
 
 ## Usage
 Mostly the same as `elscreen`:
