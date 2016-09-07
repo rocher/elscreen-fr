@@ -24,8 +24,10 @@ All are set to nil when `elscreen-fr` is started.
 Useful keys to change from tab to tab, as in most user interfaces
 using tabs:
 
-1. `(global-set-key [(control prior)] 'elscreen-previous)`
-2. `(global-set-key [(control next)] 'elscreen-next)`
+```{lisp}
+    (global-set-key [(control prior)] 'elscreen-previous)
+    (global-set-key [(control next)] 'elscreen-next)
+```
 
 The customization group lets you tweak few parameters.
 
@@ -45,6 +47,23 @@ The current screen is shown between square brackets:
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/1-one-tab.png)
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/2-two-tabs.png)
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/3-three-tabs.png)
+
+Now select the first one again,
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/4-three-tabs-select-first.png)
+
+and open `customomize-group`
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/5-three-tabs-first-is-custom.png)
+
+
+### Customization
+
+You can use numbers or nicknames instead of the default name:
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/6-using-numbers.png)
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/7-using-numbers-and-nicknames.png)
+
+
+And also a custom *window title prefix* instead of the default frame name:
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/8-with-custom-prefix.png)
 
 
 ## Finally
