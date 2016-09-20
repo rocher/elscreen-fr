@@ -58,6 +58,30 @@
   :tag "elscreen-fr"
   :group 'environment)
 
+(defcustom elscreen-fr-screen-max-length nil
+  "Limit the length of the screen name shown in the window title.
+
+This limit is only used when there is no nickname assigned to a
+screen and the screen name is the concatenation of the buffer
+names shown in the window."
+  :tag "Max length of screen names."
+  :type '(choice
+          (const :tag "unlimited" nil)
+          (integer :tag "limited" :value 24
+                   :validate
+                   (lambda(widget)
+                     (when (or (null (integerp (widget-value widget)))
+                               (< (widget-value widget)  1))
+                       (widget-put
+                        widget :error
+                        (format-message
+                         "Invalid value, must be an integer greater than 0"))
+                       widget))))
+  :set (lambda (symbol value)
+         (custom-set-default symbol value)
+         (elscreen-notify-screen-modification 'force))
+  :group 'elscreen-fr)
+
 (defcustom elscreen-fr-use-screen-numbers nil
   "Use screen numbers or nicknames instead of default names."
   :tag "Use screen numbers"
@@ -99,6 +123,24 @@
     (aset frame-screen-names (elscreen-get-current-screen) nickname)
     (modify-frame-parameters nil `((elscreen-fr-screen-names . ,frame-screen-names)))))
 
+(defun elscreen-fr-get-screen-name(screen-number is-current-screen)
+  "Computes the screen name of SCREEN-NUMBER."
+  (let* ((frame-screen-names-list (or (frame-parameter nil 'elscreen-fr-screen-names) ["0"]))
+         (frame-screen-name (elt frame-screen-names-list screen-number))
+         (elscreen-name (assoc-default screen-number (elscreen-get-screen-to-name-alist)))
+         ; (max-length (max (length elscreen-name) elscreen-fr-screen-max-length))
+         (screen-name
+          (if (or elscreen-fr-use-screen-numbers
+                  (> (length frame-screen-name) 1))
+              frame-screen-name
+            (if elscreen-fr-screen-max-length
+                (substring elscreen-name
+                           0 (min (length elscreen-name) elscreen-fr-screen-max-length))
+              elscreen-name))))
+    (if is-current-screen
+        (format "[ %s ]" screen-name)
+      (format "- %s -" screen-name))))
+
 (defun elscreen-fr-update-frame-title ()
   "Update the frame title of the current frame."
   (let* ((title (concat
@@ -112,14 +154,7 @@
          (screen-name "")
          (screen-title
           '(lambda (s)
-             (setq screen-name
-                   (if (eq s current-screen)
-                       (if elscreen-fr-use-screen-numbers
-                           (format "[ %s ]" (elt frame-screen-names s))
-                         (format "[ %s ]" (assoc-default s screen-to-name-alist)))
-                     (if elscreen-fr-use-screen-numbers
-                         (format   "- %s -" (elt frame-screen-names s))
-                       (format "- %s -" (assoc-default s screen-to-name-alist)))))
+             (setq screen-name (elscreen-fr-get-screen-name s (eq s current-screen)))
              (setq title (concat title screen-name)))))
     (dolist (screen screen-list)
       (funcall screen-title screen))
