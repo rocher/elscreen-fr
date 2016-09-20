@@ -70,7 +70,6 @@
 (defcustom elscreen-fr-window-title-prefix nil
   "Prefix to be used in the window title."
   :tag "Window title prefix"
-  ;; :type '(string :size 16)
   :type '(choice
           (const :tag "default frame name" nil)
           (string :tag "literal text"))
