@@ -5,7 +5,7 @@
 ;; Author: Francesc Rocher <francesc.rocher@gmail.com>
 ;; URL: http://github.com/rocher/elscreen-fr
 ;; Version: 0.0.2
-;; Package-Requires: ((elscreen "0"))
+;; Package-Requires: ((elscreen "0") (seq "1.11"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
