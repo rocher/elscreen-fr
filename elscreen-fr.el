@@ -134,6 +134,7 @@ are put in the frame title."
   (interactive)
   (frame-parameter nil 'elscreen-fr-screen-names)
   (modify-frame-parameters nil '((elscreen-fr-screen-names . ["0"])))
+  (setq elscreen-display-tab nil)
   (elscreen-start)
 
   (add-function :before
