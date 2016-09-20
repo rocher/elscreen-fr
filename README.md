@@ -67,6 +67,9 @@ You can use numbers or nicknames instead of the default name:
 And also a custom *window title prefix* instead of the default frame name:
 ![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/8-with-custom-prefix.png)
 
+If you consider scren names are too long when the list of buffers is
+shown, you can limit the maximum length shown:
+![screenshot](https://raw.githubusercontent.com/rocher/elscreen-fr/master/img/9-limited-name-length.png)
 
 ## Finally
 Tested only under Linux / Gnome.  Feedback welcome!
